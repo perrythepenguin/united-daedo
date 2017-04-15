@@ -1,51 +1,30 @@
 import React from 'react';
-import Home from 'containers/Tabs/Home';
-import Worlds from 'containers/Tabs/Worlds';
-import Mobs from 'containers/Tabs/Mobs';
-import Commands from 'containers/Tabs/Commands';
-import Redstone from 'containers/Tabs/Redstone';
-import Entity from 'containers/Tabs/Entity';
-import References from 'containers/Tabs/References';
 import NotFound from 'components/NotFound';
+import Home from 'containers/Tabs/Home';
 import {Route, IndexRoute} from 'react-router';
 import App from 'containers/App';
 
 
 export const tabs = [
   {
-    pathname: '',
-    tabLabel: 'Home',
+    pathname: '/',
+    tabLabel: '홈',
     component: Home
   },
   {
-    pathname: 'worlds',
-    tabLabel: 'Worlds',
-    component: Worlds
+    pathname: 'unitedboard',
+    tabLabel: '통일게시판',
+    component: <div>통일</div>
   },
   {
-    pathname: 'mobs',
-    tabLabel: 'Mobs',
-    component: Mobs
+    pathname: 'unitednews',
+    tabLabel: '통일뉴스',
+    component: <div>news</div>
   },
   {
-    pathname: 'commands',
-    tabLabel: 'Commands',
-    component: Commands
-  },
-  {
-    pathname: 'redstone',
-    tabLabel: 'Redstone',
-    component: Redstone
-  },
-  {
-    pathname: 'entity',
-    tabLabel: 'Entity & Enchant Ids',
-    component: Entity
-  },
-  {
-    pathname: 'references',
-    tabLabel: 'References',
-    component: References
+    pathname: 'informationboard',
+    tabLabel: '자료게시판',
+    component: <div>w/e</div>
   }
 ]
 

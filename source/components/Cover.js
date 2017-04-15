@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Cover({text, textColor}) {
+export default function Cover({text, subText, textColor}) {
   return (
     <div
       className="jumbotron jumbotron-fluid site-cover-photo"
@@ -24,6 +24,13 @@ export default function Cover({text, textColor}) {
         >
           {text}
         </h1>
+        <h2
+          style={{
+            fontFamily: 'Brush Script Std'
+          }}
+        >
+          {subText}
+        </h2>
       </div>
     </div>
   )

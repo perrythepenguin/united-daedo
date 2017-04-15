@@ -20,7 +20,7 @@
 
 .site-cover-photo {
   background-image: url("./images/cover.jpg");
-  background-size: cover;
+  background-size: auto;
 }
 
 @keyframes App-logo-spin {
