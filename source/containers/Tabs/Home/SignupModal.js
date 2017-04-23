@@ -4,10 +4,8 @@ import {
   Modal, ModalHeader, ModalBody, ModalFooter,
   Form, FormGroup, Label, Input
 } from 'reactstrap';
-import {connect} from 'react-redux';
-import {signup} from 'redux/actions';
 
-class SignupModal extends Component {
+export default class SignupModal extends Component {
   constructor() {
     super()
     this.state = {
@@ -21,39 +19,37 @@ class SignupModal extends Component {
     const {username, password} = this.state;
     return (
       <Modal isOpen={isOpen} toggle={toggle}>
-        <ModalHeader toggle={toggle}>Sign Up</ModalHeader>
+        <ModalHeader toggle={toggle}>회원가입</ModalHeader>
         <ModalBody>
           <Form>
             <FormGroup>
-              <Label>Username</Label>
+              <Label>사용자이름</Label>
               <Input
                 name="username"
-                placeholder="Enter Username"
+                placeholder="이름 입력"
                 value={username}
                 onChange={event => this.setState({username: event.target.value})}
               />
             </FormGroup>
             <FormGroup>
-              <Label>Password</Label>
+              <Label>비밀번호</Label>
               <Input
                 type="password"
                 name="password"
-                placeholder="Enter Password"
+                placeholder="비밀번호 입력"
                 value={password}
                 onChange={event => this.setState({password: event.target.value})} />
             </FormGroup>
           </Form>
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={() => signup({username, password})}>Sign Up</Button>{' '}
-          <Button color="secondary" onClick={toggle}>Cancel</Button>
+          <Button color="primary" onClick={() => {
+            signup(username, password)
+            toggle()
+          }}>회원가입</Button>{' '}
+          <Button color="secondary" onClick={toggle}>취소</Button>
         </ModalFooter>
       </Modal>
     )
   }
 }
-
-export default connect(
-  null,
-  {signup}
-)(SignupModal);

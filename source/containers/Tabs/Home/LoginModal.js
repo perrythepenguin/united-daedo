@@ -5,25 +5,25 @@ import {
   Form, FormGroup, Label, Input
 } from 'reactstrap';
 
-export default function LoginModal({isOpen, toggle}) {
+export default function LoginModal({isOpen, toggle, login}) {
   return (
     <Modal isOpen={isOpen} toggle={toggle}>
-      <ModalHeader toggle={toggle}>Log In</ModalHeader>
+      <ModalHeader toggle={toggle}>로그인</ModalHeader>
       <ModalBody>
         <Form>
           <FormGroup>
-            <Label>Username</Label>
-            <Input name="username" placeholder="Enter Username" />
+            <Label>사용자이름</Label>
+            <Input name="사용자이름" placeholder="이름 입력" />
           </FormGroup>
           <FormGroup>
-            <Label>Password</Label>
-            <Input type="password" name="password" placeholder="Enter Password" />
+            <Label>비밀번호</Label>
+            <Input type="비밀번호" name="비밀번호" placeholder="비밀번호 입력" />
           </FormGroup>
         </Form>
       </ModalBody>
       <ModalFooter>
-        <Button color="primary" onClick={toggle}>Log In</Button>{' '}
-        <Button color="secondary" onClick={toggle}>Cancel</Button>
+        <Button color="primary" onClick={login}>로그인</Button>{' '}
+        <Button color="secondary" onClick={toggle}>취소</Button>
       </ModalFooter>
     </Modal>
   )

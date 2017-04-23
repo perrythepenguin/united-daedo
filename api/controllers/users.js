@@ -1,11 +1,18 @@
-const User = require('../models/user');
+const express = require('express')
+const router = express.Router()
+const {poolQuery} = require('../helpers')
 
-module.exports = {
-  signup(req, res, next) {
-    console.log("came in")
-    const userProps = req.body;
-    User.create(userProps)
-      .then(user => res.send(user))
-      .catch(next)
-  }
-}
+router.get('/', function(req, res) {
+  poolQuery(`SELECT * FROM users WHERE username = 'perry'`).then(
+    ([row]) => res.send({user: row})
+  )
+})
+
+router.post('/', function(req, res) {
+  const {username, password} = req.body;
+  poolQuery('INSERT INTO users SET ?', {username, password}).then(
+    () => res.send({user: username})
+  )
+})
+
+module.exports = router
